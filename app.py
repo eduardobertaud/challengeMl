@@ -12,7 +12,7 @@ def get_user(id):
         if resp:
             return resp
     else:
-        abort(400, "Perro policia")
+        abort(400, "Error")
 
 if __name__ == '__main__':
     app.run(debug = True)
