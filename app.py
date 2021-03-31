@@ -1,9 +1,9 @@
 from flask import Flask
-from flask import jsonify
 from flask import abort
 import spark_app as s
 
 app = Flask(__name__)
+
 
 @app.route('/users/<id>')
 def get_user(id):
@@ -14,5 +14,6 @@ def get_user(id):
     else:
         abort(400, "Error")
 
+
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug=True)
