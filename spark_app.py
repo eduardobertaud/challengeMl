@@ -49,7 +49,8 @@ def nb_previous_ratings(df):
 def avg_ratings_previous(df):
     WindowSpec = Window.partitionBy("userId").rowsBetween(Window.unboundedPreceding,-1)
     df = df.withColumn("avg_ratings_previous", F.avg(F.col("rating")).over(WindowSpec.orderBy("userId", "timestamp")))
-  return df
+    return df
+
 
 """
 Load data function for validate if file already exist..
@@ -76,7 +77,7 @@ def getUser(id):
         return userRequest.toPandas().T.to_dict()
     else:
 
-        df = load_data('mlchallenge/rating.csv', True)
+        df = load_data('/Users/eduardobertaud/Desktop/mlChallenge/rating.csv', True).cache()
 
         """
         calling Function nb_previous_rating and assign to dataFrame

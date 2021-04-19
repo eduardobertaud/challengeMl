@@ -5,6 +5,11 @@ import spark_app as s
 app = Flask(__name__)
 
 
+@app.route('/users')
+def hello():
+    return "Hello Eduardo"
+
+
 @app.route('/users/<id>')
 def get_user(id):
     if id.isdigit():
